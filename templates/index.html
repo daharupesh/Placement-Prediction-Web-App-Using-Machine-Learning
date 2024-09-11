@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Placement Prediction</h2>
+        <form action="/predict" method="POST">
+            <label for="iq">IQ</label>
+            <input type="text" id="iq" name="iq" placeholder="Enter IQ" required>
+
+            <label for="cgpa">CGPA</label>
+            <input type="number" id="cgpa" name="cgpa" step="0.01" placeholder="Enter CGPA" required>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
